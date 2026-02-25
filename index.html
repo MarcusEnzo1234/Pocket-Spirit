@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Pocket Spirits</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <div class="title">Pocket Spirits</div>
+          <div class="subtitle">Tiny, unseen lives in cozy corners</div>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="pill" id="pillFragments" aria-label="Memory fragments">
+          <span class="pillLabel">Fragments</span>
+          <span class="pillValue" id="fragmentsCount">0</span>
+        </div>
+        <div class="pill" id="pillMood" aria-label="Room warmth">
+          <span class="pillLabel">Warmth</span>
+          <span class="pillValue" id="warmthValue">☕</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="canvasWrap">
+        <canvas id="game" width="960" height="540" aria-label="Pocket Spirits game canvas"></canvas>
+
+        <!-- Soft vignette overlay -->
+        <div class="vignette" aria-hidden="true"></div>
+
+        <!-- Dialogue panel -->
+        <section class="panel dialogue hidden" id="dialoguePanel" role="dialog" aria-modal="true">
+          <div class="panelHeader">
+            <div class="panelTitle" id="dialogueName">Spirit</div>
+            <button class="iconBtn" id="btnCloseDialogue" aria-label="Close dialogue">✕</button>
+          </div>
+          <div class="panelBody">
+            <div class="portrait" id="portrait"></div>
+            <div class="dialogueText" id="dialogueText"></div>
+
+            <div class="choices" id="choices"></div>
+
+            <div class="mini hidden" id="miniGameArea">
+              <div class="miniTitle" id="miniTitle">A tiny task</div>
+              <div class="miniBody" id="miniBody"></div>
+            </div>
+
+            <div class="panelFooter">
+              <div class="hint" id="hintText">Tip: Tap objects to discover hidden spirits.</div>
+              <button class="btn" id="btnContinue">Continue</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inventory / fragments panel -->
+        <section class="panel inventory" id="inventoryPanel" aria-label="Memory fragments inventory">
+          <div class="panelHeader">
+            <div class="panelTitle">Memory Fragments</div>
+            <div class="panelTag">Collect 3 to unlock a gentle room story</div>
+          </div>
+          <div class="panelBody">
+            <div class="fragments" id="fragmentsGrid"></div>
+            <div class="note" id="storyNote">
+              Find spirits inside everyday objects. Help them with small, wholesome worries.
+            </div>
+          </div>
+        </section>
+
+        <!-- On-screen touch controls helper -->
+        <div class="tapHint" id="tapHint">Tap an object ✨</div>
+      </div>
+    </main>
+
+    <footer class="bottombar">
+      <div class="keys">
+        <span class="key">Click/Tap</span> interact
+        <span class="sep">•</span>
+        <span class="key">Esc</span> close
+        <span class="sep">•</span>
+        <span class="key">M</span> toggle mute
+      </div>
+      <div class="smallprint">A cozy pixel-room prototype. No external assets. All sprites are hand-drawn in code.</div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
